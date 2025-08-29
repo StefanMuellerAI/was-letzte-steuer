@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steuerrechner 2025 - Einzelunternehmen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .disclaimer {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px;
+            text-align: center;
+            color: #856404;
+            font-weight: 500;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52,152,219,0.1);
+            transform: translateY(-2px);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            transform: scale(1.2);
+        }
+
+        .results {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+        }
+
+        .results h2 {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        .result-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .result-item h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .result-item .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .total-result {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .total-result .value {
+            font-size: 2.2rem;
+            color: #ffeaa7;
+        }
+
+        .info-section {
+            grid-column: 1 / -1;
+            background: #e8f6f3;
+            border-left: 5px solid #00b894;
+        }
+
+        .info-section h2 {
+            color: #00b894;
+            border-bottom-color: #00b894;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .info-list li:before {
+            content: "•";
+            color: #00b894;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,184,148,0.3);
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,184,148,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Steuerrechner 2025</h1>
+            <p>Einzelunternehmen (ESt + GewSt, §32a & §35 EStG)</p>
+        </div>
+        
+        <div class="disclaimer">
+            <strong>Hinweis:</strong> Der ermittelte Wert ist nur näherungsweise und dient zur groben Orientierung. 
+            Für eine exakte Steuerberechnung wenden Sie sich bitte an einen Steuerberater oder das Finanzamt.
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Eingaben</h2>
+                <form id="taxForm">
+                    <div class="form-group">
+                        <label for="stichtag">Stichtag (Datum)</label>
+                        <input type="date" id="stichtag" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="steuerklasse">Steuerklasse</label>
+                        <select id="steuerklasse">
+                            <option value="1">Steuerklasse I (Grundtabelle)</option>
+                            <option value="2">Steuerklasse II (Grundtabelle + Entlastung)</option>
+                            <option value="3">Steuerklasse III (Splittingtabelle)</option>
+                            <option value="4">Steuerklasse IV (Grundtabelle)</option>
+                            <option value="5">Steuerklasse V (Grundtabelle)</option>
+                            <option value="6">Steuerklasse VI (Grundtabelle)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="einnahmen">Einnahmen bis Stichtag (€)</label>
+                        <input type="number" id="einnahmen" step="0.01" min="0" placeholder="z.B. 165681,00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ausgaben">Ausgaben bis Stichtag (€)</label>
+                        <input type="number" id="ausgaben" step="0.01" min="0" placeholder="z.B. 44077,06" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kvpv">Monatliche KV+PV (€/Monat)</label>
+                        <input type="number" id="kvpv" step="0.01" min="0" placeholder="z.B. 680,00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hebesatz">Gewerbesteuer-Hebesatz (%)</label>
+                        <input type="number" id="hebesatz" step="0.01" min="0" placeholder="z.B. 475" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="freibetrag">GewSt-Freibetrag (§11 GewStG) (€)</label>
+                        <input type="number" id="freibetrag" step="0.01" min="0" value="24500" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weitereAufwendungen">Weitere abzugsfähige Aufwendungen (€)</label>
+                        <input type="number" id="weitereAufwendungen" step="0.01" min="0" value="0">
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="freiberuflich">
+                        <label for="freiberuflich">Freiberuflich tätig (keine Gewerbesteuer)</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ehegattensplitting">
+                        <label for="ehegattensplitting">Ehegattensplitting anwenden</label>
+                    </div>
+
+                    <button type="button" class="calculate-btn" onclick="calculateTax()">Steuern berechnen</button>
+                </form>
+            </div>
+
+            <div class="section results">
+                <h2>Ergebnisse</h2>
+                <div id="results">
+                    <div class="result-item">
+                        <h3>Gewinn (Einnahmen - Ausgaben)</h3>
+                        <div class="value" id="gewinn">0,00 €</div>
+                    </div>
+
+                    <div class="result-item">
+                        <h3>KV+PV Beiträge gesamt</h3>
+                        <div class="value" id="kvpvGesamt">0,00 €</div>
+                    </div>
+
+                    <div class="result-item">
+                        <h3>Zu versteuerndes Einkommen</h3>
+                        <div class="value" id="zvEinkommen">0,00 €</div>
+                    </div>
+
+                    <div class="result-item">
+                        <h3>Gewerbesteuer</h3>
+                        <div class="value" id="gewerbesteuer">0,00 €</div>
+                    </div>
+
+                    <div class="result-item">
+                        <h3>Einkommensteuer (nach §35)</h3>
+                        <div class="value" id="einkommensteuer">0,00 €</div>
+                    </div>
+
+                    <div class="result-item total-result">
+                        <h3>Gesamte Steuerlast</h3>
+                        <div class="value" id="gesamtSteuer">0,00 €</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section info-section">
+                <h2>Informationen zur Berechnung</h2>
+                <ul class="info-list">
+                    <li>Die Einkommensteuerformel bildet die Grundtabelle 2025 ab (§32a EStG). Bei Ehegattensplitting wird die Splittingtabelle via 2×ESt(zvE/2) verwendet.</li>
+                    <li>Die Gewerbesteuer nutzt den Freibetrag von 24.500 € und eine Messzahl von 3,5 % (§11 GewStG). Der Hebesatz ist je Kommune wählbar (Köln: 475 %).</li>
+                    <li>Vereinfachungen: Keine Sonderausgabenpauschalen, keine Kinder-/Kirchensteuer, keine Verlustvorträge, keine gewerbesteuerlichen Hinzurechnungen/Kürzungen.</li>
+                    <li>Die Anzahl der Monate für KV/PV-Beiträge wird automatisch basierend auf dem Stichtag ermittelt.</li>
+                    <li>Bei freiberuflicher Tätigkeit wird keine Gewerbesteuer berechnet.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Aktuelles Datum als Standard setzen
+        document.getElementById('stichtag').valueAsDate = new Date();
+
+        function calculateTax() {
+            // Eingabewerte abrufen
+            const stichtag = new Date(document.getElementById('stichtag').value);
+            const steuerklasse = parseInt(document.getElementById('steuerklasse').value);
+            const einnahmen = parseFloat(document.getElementById('einnahmen').value) || 0;
+            const ausgaben = parseFloat(document.getElementById('ausgaben').value) || 0;
+            const kvpvMonatlich = parseFloat(document.getElementById('kvpv').value) || 0;
+            const hebesatz = parseFloat(document.getElementById('hebesatz').value) || 0;
+            const freibetrag = parseFloat(document.getElementById('freibetrag').value) || 24500;
+            const weitereAufwendungen = parseFloat(document.getElementById('weitereAufwendungen').value) || 0;
+            const freiberuflich = document.getElementById('freiberuflich').checked;
+            const ehegattensplitting = document.getElementById('ehegattensplitting').checked;
+
+            // Monate bis Stichtag berechnen
+            const currentDate = new Date();
+            const startOfYear = new Date(stichtag.getFullYear(), 0, 1);
+            const monthsUntilStichtag = Math.min(12, Math.max(0, 
+                (stichtag.getMonth() - startOfYear.getMonth()) + 
+                (stichtag.getFullYear() - startOfYear.getFullYear()) * 12 + 1
+            ));
+
+            // Berechnungen
+            const gewinn = einnahmen - ausgaben;
+            const kvpvGesamt = kvpvMonatlich * monthsUntilStichtag;
+            const zvEinkommen = Math.max(0, gewinn - kvpvGesamt - weitereAufwendungen);
+
+            // Einkommensteuer berechnen (§32a EStG 2025)
+            let einkommensteuer = 0;
+            if (ehegattensplitting || steuerklasse === 3) {
+                // Splittingtabelle: 2 × ESt(zvE/2)
+                einkommensteuer = 2 * calculateEinkommensteuer(Math.round(zvEinkommen / 2));
+            } else {
+                // Grundtabelle
+                einkommensteuer = calculateEinkommensteuer(Math.round(zvEinkommen));
+            }
+
+            // Gewerbesteuer berechnen
+            let gewerbesteuer = 0;
+            let anrechnungBetrag = 0;
+            
+            if (!freiberuflich) {
+                const gewerbeertrag = Math.floor(gewinn / 100) * 100; // Auf volle 100 € abrunden
+                const bemessungsgrundlage = Math.max(0, gewerbeertrag - freibetrag);
+                const steuermessbetrag = bemessungsgrundlage * 0.035;
+                gewerbesteuer = steuermessbetrag * (hebesatz / 100);
+                
+                // §35 EStG Anrechnung
+                anrechnungBetrag = Math.min(einkommensteuer, 4 * steuermessbetrag);
+            }
+
+            // Einkommensteuer nach Anrechnung
+            const einkommensteuerNachAnrechnung = Math.max(0, einkommensteuer - anrechnungBetrag);
+            const gesamtSteuer = gewerbesteuer + einkommensteuerNachAnrechnung;
+
+            // Ergebnisse anzeigen
+            document.getElementById('gewinn').textContent = formatCurrency(gewinn);
+            document.getElementById('kvpvGesamt').textContent = formatCurrency(kvpvGesamt);
+            document.getElementById('zvEinkommen').textContent = formatCurrency(zvEinkommen);
+            document.getElementById('gewerbesteuer').textContent = formatCurrency(gewerbesteuer);
+            document.getElementById('einkommensteuer').textContent = formatCurrency(einkommensteuerNachAnrechnung);
+            document.getElementById('gesamtSteuer').textContent = formatCurrency(gesamtSteuer);
+        }
+
+        function calculateEinkommensteuer(x) {
+            // Grundfreibetrag und Eckwerte für 2025
+            const gfb = 12096;
+            const t2e = 17443;
+            const t3e = 68480;
+            const t4e = 277825;
+
+            if (x <= gfb) return 0;
+            
+            if (x <= t2e) {
+                const y = (x - gfb) / 10000;
+                return (932.3 * y + 1400) * y;
+            }
+            
+            if (x <= t3e) {
+                const z = (x - 17443) / 10000;
+                return (176.64 * z + 2397) * z + 1015.13;
+            }
+            
+            if (x <= t4e) {
+                return 0.42 * x - 10911.92;
+            }
+            
+            return 0.45 * x - 19246.67;
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('de-DE', {
+                style: 'currency',
+                currency: 'EUR',
+                minimumFractionDigits: 2
+            }).format(amount);
+        }
+
+        // Automatische Berechnung bei Eingabeänderungen
+        document.querySelectorAll('input, select').forEach(element => {
+            element.addEventListener('input', calculateTax);
+        });
+
+        // Initiale Berechnung
+        calculateTax();
+    </script>
+</body>
+</html>
