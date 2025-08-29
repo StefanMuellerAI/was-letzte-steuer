@@ -515,7 +515,14 @@ export default function Steuerrechner() {
 
             <div className="result-footnote">
               <h4>Auszahlbares monatliches Einkommen*</h4>
-              <div className="footnote-value">{formatCurrency(results.auszahlbaresEinkommen)}</div>
+              <div className="footnote-value">
+                {formatCurrency(results.auszahlbaresEinkommen)}
+                {ruecklage > 0 && results.auszahlbaresEinkommen > 0 && (
+                  <span style={{fontSize: '1rem', opacity: 0.8, marginLeft: '10px'}}>
+                    (Rücklage hält {Math.round(ruecklage / results.auszahlbaresEinkommen)} Monate)
+                  </span>
+                )}
+              </div>
               <small>* Gewinn minus Steuerlast minus Rücklage, geteilt durch bisherige Monate (bis einschl. Stichtag)</small>
             </div>
           </div>
