@@ -533,6 +533,7 @@ export default function Steuerrechner() {
           <ul className="info-list">
             <li>Die Einkommensteuerformel bildet die aktuellen Steuertabellen ab (§32a EStG). Für 2025: GFB 12.096€, für 2026: GFB 12.348€ mit 2% Eckwerte-Verschiebung. Bei Ehegattensplitting wird die Splittingtabelle via 2×ESt(zvE/2) verwendet.</li>
             <li>Die Gewerbesteuer nutzt den Freibetrag von 24.500 € und eine Messzahl von 3,5 % (§11 GewStG). Der Hebesatz ist je Kommune wählbar (Köln: 475 %).</li>
+            <li>Die Gewerbesteuer wird nach §35 EStG auf die Einkommensteuer angerechnet (maximal das 4-fache des Steuermessbetrags). Dies reduziert die tatsächliche Steuerbelastung erheblich.</li>
             <li>Automatische Jahreserkennung: Das Steuerjahr wird aus dem Stichtag ermittelt und die entsprechenden Steuerparameter verwendet.</li>
             <li>Vereinfachungen: Keine Sonderausgabenpauschalen, keine Kinder-/Kirchensteuer, keine Verlustvorträge, keine gewerbesteuerlichen Hinzurechnungen/Kürzungen.</li>
             <li>Die Anzahl der Monate für KV/PV-Beiträge wird automatisch basierend auf dem Stichtag ermittelt.</li>

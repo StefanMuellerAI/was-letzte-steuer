@@ -13,7 +13,7 @@ export default function Datenschutz() {
           <h2>Datenschutzerklärung</h2>
           
           <div style={{marginBottom: '30px'}}>
-            <h3>1. Datenschutz auf einen Blick</h3>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>1. Datenschutz auf einen Blick</h3>
             
             <h4 style={{color: 'rgba(255, 215, 0, 0.9)', marginTop: '20px', marginBottom: '10px'}}>Allgemeine Hinweise</h4>
             <p style={{color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.6', marginBottom: '15px'}}>
@@ -33,7 +33,7 @@ export default function Datenschutz() {
           </div>
 
           <div style={{marginBottom: '30px'}}>
-            <h3>2. Hosting und Content Delivery Networks (CDN)</h3>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>2. Hosting und Content Delivery Networks (CDN)</h3>
             
             <h4 style={{color: 'rgba(255, 215, 0, 0.9)', marginTop: '20px', marginBottom: '10px'}}>Vercel</h4>
             <p style={{color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.6', marginBottom: '15px'}}>
@@ -48,7 +48,7 @@ export default function Datenschutz() {
           </div>
 
           <div style={{marginBottom: '30px'}}>
-            <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>3. Allgemeine Hinweise und Pflichtinformationen</h3>
             
             <h4 style={{color: 'rgba(255, 215, 0, 0.9)', marginTop: '20px', marginBottom: '10px'}}>Datenschutz</h4>
             <p style={{color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.6', marginBottom: '15px'}}>
@@ -67,7 +67,7 @@ export default function Datenschutz() {
           </div>
 
           <div style={{marginBottom: '30px'}}>
-            <h3>4. Datenerfassung auf dieser Website</h3>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>4. Datenerfassung auf dieser Website</h3>
             
             <h4 style={{color: 'rgba(255, 215, 0, 0.9)', marginTop: '20px', marginBottom: '10px'}}>Server-Log-Dateien</h4>
             <p style={{color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.6', marginBottom: '15px'}}>

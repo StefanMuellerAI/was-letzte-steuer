@@ -13,25 +13,58 @@ export default function Impressum() {
           <h2>Angaben gemäß § 5 TMG</h2>
           
           <div style={{marginBottom: '30px'}}>
-            <h3>Verantwortlich für den Inhalt:</h3>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>Verantwortlich für den Inhalt:</h3>
             <p style={{color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.6', marginBottom: '20px'}}>
               Stefan Müller<br/>
-              [Ihre Adresse]<br/>
-              [PLZ] [Stadt]<br/>
+              StefanAI - Research & Development<br/>
+              Graeffstr. 22<br/>
+              50823 Köln<br/>
               Deutschland
             </p>
           </div>
 
           <div style={{marginBottom: '30px'}}>
-            <h3>Kontakt:</h3>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>Kontakt:</h3>
             <p style={{color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.6', marginBottom: '20px'}}>
-              E-Mail: [Ihre E-Mail]<br/>
-              Telefon: [Ihre Telefonnummer] (optional)
+              Telefon: 0221/5702984<br/>
+              E-Mail: info@stefanai.de
             </p>
           </div>
 
           <div style={{marginBottom: '30px'}}>
-            <h3>Haftungsausschluss:</h3>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>Umsatzsteuer-ID:</h3>
+            <p style={{color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.6', marginBottom: '20px'}}>
+              Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br/>
+              DE347707954
+            </p>
+          </div>
+
+          <div style={{marginBottom: '30px'}}>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>Redaktionell verantwortlich:</h3>
+            <p style={{color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.6', marginBottom: '20px'}}>
+              Stefan Müller<br/>
+              Graeffstr. 22<br/>
+              50823 Köln
+            </p>
+          </div>
+
+          <div style={{marginBottom: '30px'}}>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>EU-Streitschlichtung:</h3>
+            <p style={{color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.6', marginBottom: '15px'}}>
+              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" style={{color: 'rgba(255, 215, 0, 0.9)', textDecoration: 'underline'}} target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br/>
+              Unsere E-Mail-Adresse finden Sie oben im Impressum.
+            </p>
+          </div>
+
+          <div style={{marginBottom: '30px'}}>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>Verbraucherstreitbeilegung/Universalschlichtungsstelle:</h3>
+            <p style={{color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.6', marginBottom: '15px'}}>
+              Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+            </p>
+          </div>
+
+          <div style={{marginBottom: '30px'}}>
+            <h3 style={{color: 'rgba(255, 215, 0, 0.9)', marginBottom: '15px'}}>Haftungsausschluss:</h3>
             
             <h4 style={{color: 'rgba(255, 215, 0, 0.9)', marginTop: '20px', marginBottom: '10px'}}>Haftung für Inhalte</h4>
             <p style={{color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.6', marginBottom: '15px'}}>
