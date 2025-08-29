@@ -1,21 +1,26 @@
-# Steuerrechner 2025 - Einzelunternehmen
+# Steuerrechner Einzelunternehmen 2025/2026
 
-Ein moderner Steuerrechner für Einzelunternehmen, der Einkommensteuer und Gewerbesteuer nach §32a & §35 EStG berechnet. Entwickelt mit Next.js und optimiert für Vercel Deployment.
+Ein moderner Steuerrechner für Einzelunternehmen, der Einkommensteuer und Gewerbesteuer nach §32a & §35 EStG für die Jahre 2025 und 2026 berechnet. Entwickelt mit Next.js und optimiert für Vercel Deployment.
 
 ## Features
 
-- ✅ **Einkommensteuerberechnung** nach §32a EStG (Grundtabelle 2025)
+- ✅ **Einkommensteuerberechnung** nach §32a EStG (Grundtabelle 2025/2026)
+- ✅ **Automatische Jahreserkennung** basierend auf Stichtag
+- ✅ **Zukunftssichere Steuerparameter** für 2025 und 2026
 - ✅ **Gewerbesteuerberechnung** mit Freibetrag und Anrechnung nach §35 EStG
 - ✅ **Ehegattensplitting** (Splittingtabelle)
 - ✅ **Freiberufler-Modus** (ohne Gewerbesteuer)
+- ✅ **Auszahlbares Einkommen** mit Rücklage-Planung
 - ✅ **Responsive Design** für alle Geräte
 - ✅ **Echtzeitberechnung** bei Eingabeänderungen
 - ✅ **TypeScript** für Typsicherheit
 
 ## Berechnung
 
-### Einkommensteuer
-- Grundfreibetrag: 12.096 € (2025)
+### Einkommensteuer (Jahr-abhängig)
+- **2025**: Grundfreibetrag 12.096 €, Standard-Eckwerte
+- **2026**: Grundfreibetrag 12.348 € (+252€), Eckwerte +2% verschoben
+- Automatische Jahreserkennung basierend auf Stichtag
 - Grundtabelle nach §32a EStG
 - Optional: Splittingtabelle bei Ehegattensplitting
 
