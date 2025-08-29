@@ -540,8 +540,21 @@ export default function Steuerrechner() {
             <li>Das auszahlbare monatliche Einkommen wird berechnet als: (Gewinn - Steuerlast - Rücklage) ÷ bisherige Monate im Jahr bis einschließlich Stichtag.</li>
           </ul>
         </div>
+              </div>
       </div>
-      </div>
+      
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-links">
+            <a href="/impressum">Impressum</a>
+            <span className="separator">|</span>
+            <a href="/datenschutz">Datenschutzerklärung</a>
+          </div>
+          <div className="footer-copyright">
+            <p>&copy; 2025 Was letzte Steuer? - Alle Rechte vorbehalten</p>
+          </div>
+        </div>
+      </footer>
     </>
   )
 }
