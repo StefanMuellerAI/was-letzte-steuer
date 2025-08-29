@@ -4,7 +4,9 @@ const nextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true
-  }
+  },
+  distDir: 'out',
+  generateBuildId: () => 'build'
 }
 
 module.exports = nextConfig
